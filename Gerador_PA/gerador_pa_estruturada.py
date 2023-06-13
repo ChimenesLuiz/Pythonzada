@@ -22,7 +22,7 @@ while True:
             print(f'PA numero {c}: {pas}')
             c += 1
         escolha = int(input('Qual PA deseja usar: '))
-        #vendo se oq o usuario escolheu e valido
+        #vendo se oq o usuario escolheu e valido-
         if (escolha < len(lista_pas)):
             escolhida = lista_pas[escolha]
             antiga = escolhida.copy()
