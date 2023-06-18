@@ -1,4 +1,4 @@
-#fiz esse codigo em homenagem a minha prossora Enilda que fez o enunciado em minha homenagem
+#fiz esse codigo em homenagem a minha prossora Enilda que fez o enunciado em minha homenagem.
 def vermelho(entrada):
     return f'\033[31m{entrada}\033[m'
 
