@@ -1,9 +1,4 @@
 #fiz esse codigo em homenagem a minha prossora Enilda que fez o enunciado em minha homenagem
-import os
-
-def limpar_terminal():
-    os.system('clear')
-
 def vermelho(entrada):
     return f'\033[31m{entrada}\033[m'
 
