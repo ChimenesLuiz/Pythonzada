@@ -1,4 +1,5 @@
 import os
+import time
 
 class Outros:
     def __init__(self) -> None:
@@ -38,5 +39,11 @@ class Outros:
         elif os.name == 'nt':
             os.system('cls')    # Para sistemas Windows
 
+    def tempoLimite():
+        segundos = 10  # Uma hora possui 3600 segundos
         
-        
+        while (segundos > 0):
+            minutos, segundos = divmod(segundos, 60)
+            time.sleep(1)
+            segundos -= 1
+        return True

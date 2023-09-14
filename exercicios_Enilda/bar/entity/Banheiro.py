@@ -1,22 +1,49 @@
 from entity.Outros import Outros
+import sqlite3
+
+
 
 class Banheiro:
     def __init__(self, total_box = int) -> None:
         self.total_box = total_box
-        self.box = {}
-        for c in range(1, (self.total_box) + 1):
-            self.box[c] = 0
+        self.status = 0
+        self.limite_tempo = 3600
+        
+        self.__conexao = ''
+        self.cursor = ''
             
+    def conectar(self) -> None:
+        self.__conexao = sqlite3.connect('banheiros.db')
+        self.__cursor = self.__conexao.cursor()
+        
+    def cadastrar(self, total_box = int, status = int, limite_tempo = int) -> None:
+        self.conectar()
+
+        total_box = int
+        status = int
+        limite_tempo = int
+
+        self.__cursor.execute("""
+            INSERT INTO banheiros(total_box, status, limite_tempo)
+            VALUES (?, ?, ?)
+                            """, total_box, status, limite_tempo)
     def ocupar(self, box = int) -> None:
-        for key in self.box.keys():
-            if (box == key):
-                self.box[key] = 1
-                break
+        self.conectar()
+
+        total_box = int
+        status = int
+        limite_tempo = int
+        
+        self.__cursor.execute("""
+            INSERT INTO banheiros(total_box, status, limite_tempo)
+            VALUES (?, ?, ?)
+                            """, total_box, status, limite_tempo)
+        
     
     def getBox(self):
         Outros.clearTerminal()
         for c in self.box.keys():
             print('-'*30)
-            print(f"BOX {c}: {print('OCUPADO') if c == 1 else print('LIVRE')}")
-        print('-'*30)
-        
+            print(f"{c}", end = ' ')
+            print(Outros.corVermelho('OCUPADO')) if self.box[c] == 1 else print(Outros.corVerde('LIVRE'))
+            print('-'*30)
