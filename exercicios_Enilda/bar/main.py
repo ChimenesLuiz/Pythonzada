@@ -3,14 +3,16 @@ from entity.Outros import Outros
 
 outros = Outros()
 
-banheiro = Banheiro(Outros.validarInt(5))
+max_box = Outros.validarIntInput('Quantos box gostaria de adicionar')
+banheiro = Banheiro(max_box)
+banheiro.cadastrarBox()
 
 print('LUIZ`S BARS')
 
-while 1 == 1:
-    banheiro.getBox()
-    box = outros.validarIntInput('Entre/Saia')
-    banheiro.ocupar(box =  box)
+# while 1 == 1:
+#     banheiro.getBox()
+#     box = outros.validarIntInput('Entre/Saia')
+#     banheiro.ocupar(box =  box)
 
 
 

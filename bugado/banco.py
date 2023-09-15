@@ -2,20 +2,24 @@
 import sqlite3
 
 # conectando...
-conn = sqlite3.connect('banco.db')
+conn = sqlite3.connect('banheiros.db')
 # definindo um cursor
 cursor = conn.cursor()
 
 # criando a tabela (schema)
 cursor.execute("""
-        CREATE TABLE banheiros(
+        CREATE TABLE boxes(
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        total_box INTEGER,
-        status,
-        limite_tempo INTEGER,
-        data_criacao DATE NOT NULL
+        status INTEGER,
+        limite_tempo INTEGER
                             );
             """)
+
+query = """
+INSERT INTO boxes(status, limite_tempo) VALUES (?, ?)
+        """
+# for box in range(1, (self.total_box + 1)):
+cursor.execute(query, (0, 0))
 
 print('Tabela criada com sucesso.')
 # desconectando...
