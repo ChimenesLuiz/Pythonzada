@@ -2,7 +2,7 @@ import sqlite3
 from entity.Outros import Outros
 
 class Banheiro:
-    def __init__(self, total_box = int):
+    def __init__(self, total_box = int) -> None:
         self.total_box = total_box
         self.status = 0
         self.limite_tempo = 3600
@@ -15,11 +15,11 @@ class Banheiro:
         self.cursor = self.conn.cursor()
 
 
-    def desconectar(self):
+    def desconectar(self) -> None:
         self.conn.close()
 
 
-    def cadastrarBox(self):
+    def cadastrarBox(self) -> None:
         self.conectar()
 
         dados_fixo = (str(self.status), str(self.limite_tempo))
@@ -81,7 +81,7 @@ class Banheiro:
             return False
             
 
-    def getBox(self):
+    def getBox(self) -> print:
         Outros.clearTerminal()
         if (self.gambiarra):
             print(Outros.corVermelho('ALGO DEU ERRADO!!'))
