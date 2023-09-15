@@ -11,7 +11,6 @@ else:
     banheiro = Banheiro(0)
 
 
-print('FBroom')
 while 1 == 1:
     banheiro.getBox()
     box = outros.validarIntInput('Entre/Saia')

@@ -22,11 +22,23 @@ class Outros:
                 
     @staticmethod        
     def corVermelho(texto) -> str:
-        return (f'\033[1;33;41m{texto}\033[m')
+        return (f'\033[1;31;41m{texto}\033[m') #bold, vermelho, vermelho
     
     @staticmethod        
     def corVerde(texto) -> str:
-        return (f'\033[1;32;42m{texto}\033[m')
+        return (f'\033[1;32;42m{texto}\033[m') #bold, verde, verde
+    
+    @staticmethod        
+    def corLilas(texto) -> str:
+        return (f'\033[1;35;40m{texto}\033[m') #bold, lilas, preto
+    
+    @staticmethod        
+    def corAzul(texto) -> str:
+        return (f'\033[1;36;46m{texto}\033[m') #bold, azul, azul
+
+    @staticmethod        
+    def corAmarelo(texto) -> str:
+        return (f'\033[1;33;43m{texto}\033[m') #bold, amarelo, amarelo
     
     @staticmethod        
     def clearTerminal() -> None:

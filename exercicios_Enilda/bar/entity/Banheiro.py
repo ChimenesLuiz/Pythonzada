@@ -83,6 +83,7 @@ class Banheiro:
 
     def getBox(self) -> print:
         Outros.clearTerminal()
+        print(Outros.corLilas('FBroom'))
         if (self.gambiarra):
             print(Outros.corVermelho('ALGO DEU ERRADO!!'))
 
