@@ -26,7 +26,6 @@ class Banheiro:
         parametros_insert = []
         for box in range(1, (self.total_box + 1)):
             parametros_insert.append(dados_fixo)
-        query = "INSERT INTO boxes(status, limite_tempo) VALUES (?, ?)"
         self.cursor.executemany("INSERT INTO boxes(status, limite_tempo) VALUES (?, ?)", parametros_insert)
 
         self.last_id = [self.cursor.lastrowid]
@@ -87,7 +86,7 @@ class Banheiro:
         Outros.clearTerminal()
         if (self.gambiarra):
             print(Outros.corVermelho('ALGO DEU ERRADO!!'))
-            
+
         self.conectar()
 
         query = "SELECT * FROM boxes" 
