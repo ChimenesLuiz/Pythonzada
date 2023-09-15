@@ -11,7 +11,7 @@ cursor.execute("""
         CREATE TABLE boxes(
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         status INTEGER,
-        limite_tempo INTEGER
+        limite_tempo DATETIME
                             );
             """)
 

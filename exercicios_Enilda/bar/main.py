@@ -12,6 +12,7 @@ else:
 
 
 while 1 == 1:
+    banheiro.verificarTempo(3)
     banheiro.getBox()
     box = outros.validarIntInput('Entre/Saia')
     banheiro.ocuparDesocupar(id =  box)
