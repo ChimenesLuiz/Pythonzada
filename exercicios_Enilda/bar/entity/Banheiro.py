@@ -6,9 +6,9 @@ class Banheiro:
         self.total_box = total_box
         self.status = 0
         self.limite_tempo = 3600
-        self.last_id = []
 
         self.gambiarra = False #NAO PODE FALTAR NE, SOU EU AQUI -->> Luizao 
+
 
     def conectar(self) -> None:
         self.conn = sqlite3.connect('banheiros.db')
@@ -28,7 +28,6 @@ class Banheiro:
             parametros_insert.append(dados_fixo)
         self.cursor.executemany("INSERT INTO boxes(status, limite_tempo) VALUES (?, ?)", parametros_insert)
 
-        self.last_id = [self.cursor.lastrowid]
 
         self.conn.commit()
         self.desconectar()
