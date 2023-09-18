@@ -1,6 +1,4 @@
 import sqlite3
-import datetime
-import time
 from entity.Outros import Outros
 
 class Banheiro:
