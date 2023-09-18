@@ -12,7 +12,7 @@ class Outros:
                 print("Entrada inválida. Por favor, insira um número inteiro.")
                 
     @staticmethod
-    def validarIntInput(nome = str) -> str or print:
+    def validarIntInput(nome = str) -> int or print:
         while 1 == 1:
             try:
                 valor = int(input(f"{nome}: "))
