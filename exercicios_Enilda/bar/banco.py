@@ -10,16 +10,9 @@ cursor = conn.cursor()
 cursor.execute("""
         CREATE TABLE boxes(
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        status INTEGER,
-        limite_tempo DATETIME
+        status INTEGER
                             );
             """)
-
-query = """
-INSERT INTO boxes(status, limite_tempo) VALUES (?, ?)
-        """
-# for box in range(1, (self.total_box + 1)):
-cursor.execute(query, (0, 0))
 
 print('Tabela criada com sucesso.')
 # desconectando...
