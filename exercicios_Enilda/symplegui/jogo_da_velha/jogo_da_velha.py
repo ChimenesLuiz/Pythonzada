@@ -10,27 +10,21 @@ INITIAL_PLAYER = "X"
 
 
 def ask_if_play_again(player):
-    """
-    Ask the user if they want to play again or quit
-    """
     if player is None:
-        message = "Tied Game!"
+        message = "Empate!"
     else:
-        message = f"{player} won!"
+        message = f"{player} Venceu!"
     layout = [
-        [sg.Text(f"{message} Do you want to play again or Quit?")],
-        [sg.Button("Restart"), sg.Button("Quit")],
+        [sg.Text(f"{message} Quer jogar de novo ou sair?")],
+        [sg.Button("Jogar de Novo"), sg.Button("Sair")],
     ]
-    event, values = sg.Window("Play Again?", layout, modal=True).read(
+    event, values = sg.Window("Jogar de novo?", layout, modal=True).read(
         close=True
     )
-    return True if event == "Restart" else False
+    return True if event == "Reiniciar" else False
 
 
 def check_if_won(winning_configurations):
-    """
-    Check if anyone has won yet
-    """
     winner = None
     for configuration in winning_configurations:
         game_pieces = {btn.metadata for btn in configuration}
@@ -40,7 +34,6 @@ def check_if_won(winning_configurations):
             mark_win([*configuration])
             return (True, winner)
 
-    # Check if tied game
     data = [
         btn.metadata
         for configuration in winning_configurations
@@ -48,17 +41,14 @@ def check_if_won(winning_configurations):
     ]
 
     if None not in data:
-        # Tied game
+
         return (None, winner)
 
-    # Keep playing
     return (False, winner)
 
 
 def get_winning_configurations(buttons):
-    """
-    Returns a list of methods to win the game
-    """
+
     horizontal_ways_to_win = [
         [buttons[0][0], buttons[1][0], buttons[2][0]],
         [buttons[0][1], buttons[1][1], buttons[2][1]],
@@ -77,17 +67,13 @@ def get_winning_configurations(buttons):
 
 
 def mark_win(buttons):
-    """
-    Mark the winning buttons with a different background color
-    """
+
     for button in buttons:
         button.update(button_color=["green", "green"])
 
 
 def reset_game(buttons):
-    """
-    Reset the game to play again
-    """
+
     bio = io.BytesIO()
     image = Image.open(BLANK_IMAGE_PATH)
     image.save(bio, format="PNG")
@@ -100,9 +86,7 @@ def reset_game(buttons):
 
 
 def update_game(button, player):
-    """
-    Update the game
-    """
+
     original_player = player
     if player == "X":
         filename = PLAYER_X_IMAGE_PATH
@@ -124,9 +108,7 @@ def update_game(button, player):
 
 
 def main():
-    """
-    Create GUI and manage UI events
-    """
+
     layout = [
         [
             sg.Button(
@@ -140,7 +122,7 @@ def main():
         ]
         for col in range(3)
     ]
-    window = sg.Window("Tic-Tac-Toe", layout)
+    window = sg.Window("Jogo da velha", layout)
     ways_to_win = get_winning_configurations(layout)
 
     player = INITIAL_PLAYER
@@ -155,7 +137,7 @@ def main():
             if winning_configuration is not False:
                 should_restart = ask_if_play_again(winner)
                 if should_restart is False:
-                    # Close the application
+
                     break
                 player = INITIAL_PLAYER
                 reset_game(layout)
