@@ -16,12 +16,13 @@ def ask_if_play_again(player):
         message = f"{player} Venceu!"
     layout = [
         [sg.Text(f"{message} Quer jogar de novo ou sair?")],
-        [sg.Button("Jogar de Novo"), sg.Button("Sair")],
+        [sg.Button("Jogar de novo"), sg.Button("Sair")],
     ]
-    event, values = sg.Window("Jogar de novo?", layout, modal=True).read(
+    event, values = sg.Window("Quer jogar de novo?", layout, modal=True).read(
         close=True
     )
-    return True if event == "Reiniciar" else False
+    print(event)
+    return True if event == "Jogar de novo" else False
 
 
 def check_if_won(winning_configurations):
@@ -137,7 +138,6 @@ def main():
             if winning_configuration is not False:
                 should_restart = ask_if_play_again(winner)
                 if should_restart is False:
-
                     break
                 player = INITIAL_PLAYER
                 reset_game(layout)
