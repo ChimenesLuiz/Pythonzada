@@ -10,9 +10,8 @@ class Database():
         self.__cursor = ''
         self.__table = table
         
-        
     
-    def __connect(self) -> print:
+    def __connect(self) -> mysql.connector.Error:
         try:
             self.__conn = mysql.connector.connect(
             host="192.168.22.9",
@@ -35,7 +34,6 @@ class Database():
             self.__cursor.execute(query)
             statement = self.__cursor.fetchall()
             self.__conn.commit()
-            print(query)
             return statement
         except mysql.connector.Error as e:
             raise(f'Algo deu errado --> {e}')
@@ -43,7 +41,7 @@ class Database():
             self.__disconect()
             
             
-    def insert(self, dados = dict):
+    def insert(self, dados = dict) -> bool:
         
         keys = []
         values = []
@@ -54,24 +52,15 @@ class Database():
         query = f"""INSERT INTO {self.__table}({implode(", ", keys)}) VALUES('{implode("', '", values)}')"""
         
         self.__executeQuery(query = query)
+        return True
             
     
-    def select(self, where = "", like_dados = [], order = "", limit = "", campos = "*") -> str:
-        
-        
+    def select(self, where = "", like_dados = "", order = "", limit = "", campos = "*") -> str:
         
         like = ""
         if (len(like_dados) > 0):
             where = f"WHERE " + where
-            c = 0
-            for i in range(0, len(like_dados)):
-                if (c == 0):
-                    like += f"{where} LIKE {like_dados[i]}"
-                    c = 1
-                else:
-                    like += f" AND {like_dados[i]}"
-                i += 1    
-            print(like)
+            like += f"{where} LIKE {like_dados}"
         
         where = f" WHERE " + where if (len(where) > 0) else ""
         
@@ -82,10 +71,8 @@ class Database():
             query = f"""SELECT {campos} FROM {self.__table} {where} {like} {order} {limit}"""
         else:
             query = f"""SELECT {campos} FROM {self.__table} {like} {order} {limit}"""
-        print(query)
-        #return self.__executeQuery(query = query)
+        return self.__executeQuery(query = query)
         
-
 
     def update(self, dados   = {}, where = "") -> bool:
         where = f" WHERE " + where if (len(where) > 0) else ""
@@ -101,7 +88,7 @@ class Database():
         return True
     
     
-    def delete(self, where) -> bool:
+    def delete(self, where = "") -> bool:
         where = f" WHERE " + where if (len(where) > 0) else ""
         
         query = f"""DELETE FROM {self.__table} {where}"""
@@ -114,9 +101,9 @@ class Database():
 # db.insert(dados = dados)
     
 # SELECT
-db = Database('luiz')
-dados = db.select(where = "id", like_dados = ['um', 'dois', 'tres'])
-#print(dados)
+# db = Database('luiz')
+# dados = db.select()
+# print(dados)
 
 # UPDATE
 # db = Database('luiz')
