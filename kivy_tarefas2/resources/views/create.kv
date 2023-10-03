@@ -1,0 +1,105 @@
+
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    focus_behavior: False
+    selected_color: "#4a4939"
+    _no_ripple_effect: True
+
+
+MDScreen:
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+
+            MDScreen:
+
+                MDTopAppBar:
+                    title: "Navigation Drawer"
+                    elevation: 4
+                    pos_hint: {"top": 1}
+                    md_bg_color: "#e7e4c0"
+                    specific_text_color: "#4a4939"
+                    left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                    
+                MDRaisedButton:
+                    # on_press: main.POST()
+                    text: "    Voltar    "
+                    md_bg_color: "red"
+                    pos_hint: {"center_x": .3, "center_y": .20}
+
+
+                MDRaisedButton:
+                    on_press: app.POSTandCREATE()
+                    text: "Cadastrar"
+                    md_bg_color: "green"
+                    pos_hint: {"center_x": .7, "center_y": .20}
+                    
+                    
+                MDTextField:
+                    id: date_task
+                    hint_text: "Data para conclusao"
+                    helper_text: "There will always be a mistake"
+                    helper_text_mode: "on_error"
+                    pos_hint: {"center_x": .5, "center_y": .40}
+                    size_hint_x: .5
+                    
+                MDTextField:
+                    id: desc_task
+                    hint_text: "Descricao"
+                    helper_text: "There will always be a mistake"
+                    helper_text_mode: "on_error"
+                    pos_hint: {"center_x": .5, "center_y": .55}
+                    size_hint_x: .5
+                    
+                MDTextField:
+                    id: name_task
+                    hint_text: "Nome Tarefa"
+                    helper_text: "There will always be a mistake"
+                    helper_text_mode: "on_error"
+                    pos_hint: {"center_x": .5, "center_y": .70}
+                    size_hint_x: .5
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 16, 16, 0)
+
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerHeader:
+                    title: "Tasks"
+                    title_color: "#4a4939"
+                    text: " List tasks"
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
+
+                DrawerClickableItem:
+                    icon: "gmail"
+                    right_text: "+0"
+                    text_right_color: "#4a4939"
+                    text: "Dash"
+                
+                DrawerClickableItem:
+                    icon: "gmail"
+                    right_text: "+0"
+                    text_right_color: "#4a4939"
+                    text: "Create"
+
+
+                MDNavigationDrawerDivider:
+
+                MDNavigationDrawerLabel:
+                    text: "Info"
+
+                DrawerLabelItem:
+                    icon: "information-outline"
+                    text: "App Info"
