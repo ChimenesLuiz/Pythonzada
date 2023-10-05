@@ -1,25 +1,30 @@
-#classes externas
-from kivymd.app import MDApp
+from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
+from kivymd.app import MDApp
 
-#classes internas
-from app.controllers.CreateScreen import CreateScreen
+#classe interna
+from app.controllers.Task import TaskController
+taskcontroller = TaskController()
 
+class Manager(ScreenManager):
+    def build(self):
+        sm = Builder.load_file(f"resources/views/views.kv")
+        sm.current = 'home'
+        return sm
+
+class Home(Screen):
+    pass
+
+class CreateTaskScreen(Screen):
+    pass
 
 class Main(MDApp):
     def build(self):
-        sm = ScreenManager()
-        
-        create_screen = CreateScreen(name = 'create_screen')
+        return Manager().build()
 
-        sm.add_widget(create_screen.build())
-
-        return sm
+    def POST(self):
+        taskcontroller.POST()
     
-
-    def create(self):
-        CreateScreen.POSTandCREATE()
-        
-        
+    
 if __name__ == '__main__':
-    Main().run() 
+    Main().run()
