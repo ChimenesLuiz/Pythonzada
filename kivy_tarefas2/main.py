@@ -3,7 +3,7 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
 
 #classe interna
-from app.controllers.Task import TaskController
+from app.controllers.TaskController import TaskController
 taskcontroller = TaskController()
 
 class Manager(ScreenManager):
@@ -17,13 +17,13 @@ class Home(Screen):
 
 class CreateTaskScreen(Screen):
     pass
-
+    
 class Main(MDApp):
     def build(self):
         return Manager().build()
 
     def POST(self):
-        taskcontroller.POST()
+        taskcontroller.POST(ids = self.root.ids)
     
     
 if __name__ == '__main__':
