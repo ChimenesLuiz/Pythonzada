@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>903</width>
     <height>600</height>
    </rect>
   </property>
@@ -22,7 +22,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>791</width>
+      <width>421</width>
       <height>551</height>
      </rect>
     </property>
@@ -37,27 +37,13 @@ color: rgb(0, 0, 0);</string>
      <enum>QFrame::Raised</enum>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
+     <item row="2" column="0" colspan="2">
+      <widget class="QLineEdit" name="nome">
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
-        <string>TELEFONE:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>NOME:</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -68,10 +54,15 @@ color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
-      <widget class="QRadioButton" name="pleno">
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>Pleno</string>
+        <string>TELEFONE:</string>
        </property>
       </widget>
      </item>
@@ -91,6 +82,13 @@ color: rgb(0, 0, 0);</string>
       <widget class="QRadioButton" name="junior">
        <property name="text">
         <string>Junior</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0" colspan="2">
+      <widget class="QPushButton" name="btn_cancelar">
+       <property name="text">
+        <string>CANCELAR</string>
        </property>
       </widget>
      </item>
@@ -118,28 +116,8 @@ color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0" colspan="2">
-      <widget class="QLineEdit" name="nome">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
      <item row="6" column="0" colspan="2">
       <widget class="QLineEdit" name="telefone">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="2">
-      <widget class="QLineEdit" name="email">
        <property name="styleSheet">
         <string notr="true"/>
        </property>
@@ -160,8 +138,37 @@ color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>NOME:</string>
+       </property>
+      </widget>
+     </item>
      <item row="8" column="0" colspan="2">
       <widget class="QLineEdit" name="matricula">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QRadioButton" name="pleno">
+       <property name="text">
+        <string>Pleno</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="2">
+      <widget class="QLineEdit" name="email">
        <property name="styleSheet">
         <string notr="true"/>
        </property>
@@ -177,34 +184,49 @@ color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
-     <item row="14" column="0" colspan="2">
-      <widget class="QPushButton" name="btn_cancelar">
-       <property name="text">
-        <string>CANCELAR</string>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>0</y>
+      <width>481</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="2" column="0">
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(152, 149, 149);</string>
        </property>
       </widget>
      </item>
-     <item row="15" column="0" colspan="2">
-      <widget class="QPushButton" name="btn_listar">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>LISTAR</string>
+        <string>USUARIOS</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
