@@ -19,12 +19,9 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>771</width>
-      <height>551</height>
+      <width>138</width>
+      <height>66</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -32,32 +29,46 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
       <widget class="QLabel" name="label">
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>30</pointsize>
         </font>
        </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
        <property name="text">
-        <string>USUARIOS</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(152, 149, 149);</string>
+        <string>INICIO</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="btn_cadastrar_usuario">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>200</y>
+      <width>551</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CADASTRO USUARIO</string>
+    </property>
+   </widget>
   </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

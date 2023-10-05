@@ -1,6 +1,5 @@
-from app.controller.usuario import UsuarioController
+from app.controller.inicio import InicioController
 
-usuario_controller = UsuarioController()
+inicio_controller = InicioController()
 
-usuario_controller.build()
-    
+inicio_controller.build()

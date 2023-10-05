@@ -18,13 +18,17 @@ class Usuario:
     def cadastrar(self, dados = {}) -> None:
         self.conectar()
 
-        matricula = dados["matricula"]
         nome = dados["nome"]
         email = dados["email"]
         telefone = dados["telefone"]
+        cpf = dados["cpf"]
+        cep = dados["cep"]
+        endereco = dados["endereco"]
+        numero = dados["numero"]
+        bairro = dados["bairro"]
 
-        consulta = "INSERT INTO usuarios (matricula, nome, email, telefone) VALUES (?, ?, ?, ?)"
-        self.cursor.execute(consulta, (str(matricula), str(nome), str(email), str(telefone)))
+        consulta = "INSERT INTO usuarios (nome, email, telefone, cpf, cep, endereco, bairro, numero) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+        self.cursor.execute(consulta, (str(nome), str(email), str(telefone), str(cpf), str(cep), str(endereco), str(bairro), str(numero)))
         self.conn.commit()
 
 
@@ -38,7 +42,6 @@ class Usuario:
         consulta = "SELECT * FROM usuarios"
         self.cursor.execute(consulta)
         dados = self.cursor.fetchall()
-        return dados
-
-
+        
         self.desconectar()
+        return dados

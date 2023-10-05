@@ -9,10 +9,15 @@ cursor = conn.cursor()
 # Criar uma tabela
 cursor.execute('''
         CREATE TABLE IF NOT EXISTS usuarios(
-        matricula INTEGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT,
         email TEXT,
-        telefone TEXT
+        telefone TEXT,
+        cpf TEXT,
+        cep TEXT,
+        endereco TEXT,
+        bairro TEXT,
+        numero TEXT
     )
 ''')
 
