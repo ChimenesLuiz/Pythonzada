@@ -2,7 +2,7 @@ import typing
 from PyQt6 import QtCore, uic, QtWidgets
 
 #classe interna
-from app.controller.usuario import UsuarioController
+from app.controller.usuariocontroller import UsuarioController
 usuario_controller = UsuarioController()
 
 

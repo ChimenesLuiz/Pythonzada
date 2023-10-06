@@ -1,4 +1,4 @@
-from app.controller.usuario import UsuarioController 
+from app.controller.usuariocontroller import UsuarioController 
 
 inicio_controller = UsuarioController()
 
