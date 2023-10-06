@@ -1,5 +1,9 @@
-from app.controller.usuariocontroller import UsuarioController 
+from app.controller.iniciocontroller import InicioController
+from PyQt6.QtWidgets import QMainWindow, QApplication
+import sys
 
-inicio_controller = UsuarioController()
-
-inicio_controller.build()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)  
+    janela = InicioController()
+    janela.show()
+    sys.exit(app.exec())  
