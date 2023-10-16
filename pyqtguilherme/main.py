@@ -109,7 +109,7 @@ class MainWindow(QMainWindow):
         
     #change qpushbutton checkable status when stackedwidget index changed
     def on_stackedWidget_currentChanged(self, index):
-        btn_list = self.ui.icon_only_widget.findChildren(QPushButton) + self.ui.full_menu_widget.findChildren(QPushButton) 
+        btn_list = self.ui.full_menu_widget.findChildren(QPushButton) 
         
         for btn in btn_list:
             if index in [5, 6]:
@@ -118,20 +118,6 @@ class MainWindow(QMainWindow):
             else:
                 btn.setAutoExclusive(True)
                 
-        ## functions for changing menu page
-    
-    #switching screens
-    #1 veiculos tabela
-    #2 usuarios tabela
-    #3 cadastro de usuarios
-    #4 locar/vender carro
-    #6 excluir id usuarios
-    #8 excluir id usuario
-    #9 editar id usuario
-    #10 editar id veiculo
-    #11 excluir id veiculo
-    #12 cadastro de veiculo
-
     def on_home_btn_1_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(0)
     
@@ -214,7 +200,7 @@ class MainWindow(QMainWindow):
             self.ui.input_bairro.setText(dados["bairro"]) 
             self.ui.input_rua.setText(dados["logradouro"])
         else:
-            print('saporra nao existe')
+            print('nao existe')
         
     def limpar_cadastro_usuario(self):
         self.ui.input_nome_completo.setText("")
@@ -367,7 +353,6 @@ class MainWindow(QMainWindow):
     def show_dados_relacoes(self):
         Relacao.getDados()
         dados = Relacao.getDados()
-        print(dados)
         if (dados):
             self.ui.tabela_relacoes.setRowCount(len(dados))
             self.ui.tabela_relacoes.setColumnCount(len(dados[0]))

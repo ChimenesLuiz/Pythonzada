@@ -73,7 +73,6 @@ class Veiculo:
 
     def update(id = "", dados_update= {}):
         dados = Veiculo.getDadosById(id = str(id))
-        print(dados)
         if (dados):
             for v in dados_update.values():
                 v = str(v)

@@ -16,13 +16,13 @@ class Relacao:
         resultado_veiculo = Veiculo.getDadosByPlaca(placa = dados["id_veiculo"])
         dados["id_usuario"] = resultado_usuario[0]
         dados["id_veiculo"] = resultado_veiculo[0]
-        print(dados)
+
         if (resultado_usuario and resultado_veiculo):
             for values in dados.values():
                 values = str(values)
 
             banco.conectar()
-            consulta = "INSERT INTO relacoes(id_usuario, id_veiculo, data_limite, preco, tipo) VALUES (:id_usuario, :id_veiculo, :data_limite, :preco, :tipo)"
+            consulta = "INSERT INTO relacoes(id_usuario, id_veiculo, data_limite, tipo) VALUES (:id_usuario, :id_veiculo, :data_limite, :tipo)"
             banco.cursor.execute(consulta, dados)
             
             banco.conn.commit()
