@@ -373,7 +373,7 @@ class MainWindow(QMainWindow):
             self.ui.tabela_relacoes.setRowCount(len(dados))
             self.ui.tabela_relacoes.setColumnCount(len(dados[0]))
 
-            self.ui.tabela_relacoes.setHorizontalHeaderLabels(('ID', 'NOME COMPLETO', 'EMAIL', 'TELEFONE', 'CPF', 'CEP', 'BAIRRO', 'RUA', 'NUMERO'))
+            self.ui.tabela_relacoes.setHorizontalHeaderLabels(('ID', 'NOME COMPLETO', 'EMAIL', 'TELEFONE', 'CPF', 'CEP', 'ANO', 'KM', 'CAMBIO', 'CARROCERIA', 'COMBUSTIVEL', 'PLACA', 'PRECO'))
             for linha in range(len(dados)):
                 for coluna in range(len(dados[0])):
                     self.ui.tabela_relacoes.setItem(linha, coluna, QTableWidgetItem(str(dados[linha][coluna])))
