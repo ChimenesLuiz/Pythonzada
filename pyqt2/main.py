@@ -110,7 +110,7 @@ class MainWindow(QMainWindow):
         
     #change qpushbutton checkable status when stackedwidget index changed
     def on_stackedWidget_currentChanged(self, index):
-        btn_list = self.ui.icon_only_widget.findChildren(QPushButton) + self.ui.full_menu_widget.findChildren(QPushButton) 
+        btn_list = self.ui.full_menu_widget.findChildren(QPushButton) 
         
         for btn in btn_list:
             if index in [5, 6]:
