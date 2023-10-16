@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1227</width>
-    <height>650</height>
+    <width>1261</width>
+    <height>797</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -75,7 +75,7 @@ color: rgb(0, 0, 0);</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon2/icon2/NISSAN.svg</pixmap>
+            <pixmap resource="sidebar/resource.qrc">:/icon2/icon2/NISSAN.svg</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -101,7 +101,7 @@ color: rgb(0, 0, 0);</string>
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="sidebar/resource.qrc">
              <normaloff>:/icon2/icon2/home.png</normaloff>
              <normalon>:/icon2/icon2/white_home.png</normalon>:/icon2/icon2/home.png</iconset>
            </property>
@@ -131,7 +131,7 @@ color: rgb(0, 0, 0);</string>
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="sidebar/resource.qrc">
              <normaloff>:/icon2/icon2/plus.png</normaloff>
              <normalon>:/icon2/icon2/white_plus.png</normalon>:/icon2/icon2/plus.png</iconset>
            </property>
@@ -256,7 +256,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="resource.qrc">
+          <iconset resource="sidebar/resource.qrc">
            <normaloff>:/icon2/icon2/exit.png</normaloff>:/icon2/icon2/exit.png</iconset>
          </property>
          <property name="iconSize">
@@ -311,7 +311,7 @@ color: rgb(0, 0, 0);</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon2/icon2/NISSAN.svg</pixmap>
+            <pixmap resource="sidebar/resource.qrc">:/icon2/icon2/NISSAN.svg</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -349,7 +349,7 @@ color: rgb(0, 0, 0);</string>
             <string>Inicio</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="sidebar/resource.qrc">
              <normaloff>:/icon2/icon2/home.png</normaloff>
              <normalon>:/icon2/icon2/white_home.png</normalon>:/icon2/icon2/home.png</iconset>
            </property>
@@ -379,7 +379,7 @@ color: rgb(0, 0, 0);</string>
             <string>Usuario</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="sidebar/resource.qrc">
              <normaloff>:/icon2/icon2/plus.png</normaloff>
              <normalon>:/icon2/icon2/white_plus.png</normalon>:/icon2/icon2/plus.png</iconset>
            </property>
@@ -409,7 +409,7 @@ color: rgb(0, 0, 0);</string>
             <string>Veiculo</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="sidebar/resource.qrc">
              <normaloff>:/icon2/icon2/plus.png</normaloff>
              <normalon>:/icon2/icon2/white_plus.png</normalon>:/icon2/icon2/plus.png</iconset>
            </property>
@@ -504,7 +504,7 @@ color: rgb(0, 0, 0);</string>
           <string>EXIT</string>
          </property>
          <property name="icon">
-          <iconset resource="resource.qrc">
+          <iconset resource="sidebar/resource.qrc">
            <normaloff>:/icon2/icon2/exit.png</normaloff>:/icon2/icon2/exit.png</iconset>
          </property>
          <property name="iconSize">
@@ -572,7 +572,7 @@ color: rgb(0, 0, 0);</string>
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="sidebar/resource.qrc">
               <normaloff>:/icon2/icon2/menu.png</normaloff>:/icon2/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -614,7 +614,7 @@ color: rgb(0, 0, 0);</string>
             <item>
              <widget class="QPushButton" name="search_btn">
               <property name="icon">
-               <iconset resource="resource.qrc">
+               <iconset resource="sidebar/resource.qrc">
                 <normaloff>:/icon2/icon2/search.png</normaloff>:/icon2/icon2/search.png</iconset>
               </property>
              </widget>
@@ -640,7 +640,7 @@ color: rgb(0, 0, 0);</string>
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="sidebar/resource.qrc">
               <normaloff>:/icon2/icon2/profile.png</normaloff>:/icon2/icon2/profile.png</iconset>
             </property>
            </widget>
@@ -651,37 +651,248 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="page">
-          <widget class="QLabel" name="label_4">
-           <property name="geometry">
-            <rect>
-             <x>400</x>
-             <y>200</y>
-             <width>67</width>
-             <height>17</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>HOME</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QWidget" name="widget_5" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QTableWidget" name="tabela_usuarios"/>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_2" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QPushButton" name="btn_cadastrar_usuario_redirect">
+                   <property name="text">
+                    <string>CADASTRAR</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_editar_usuario_redirect">
+                   <property name="text">
+                    <string>EDITAR</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_excluir_usuario_redirect">
+                   <property name="text">
+                    <string>EXCLUIR</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="page_2">
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>410</x>
-             <y>220</y>
-             <width>131</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>DASHBOARD</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QWidget" name="widget" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Nome completo</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_nome_completo"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Email</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_email"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Telefone</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_telefone"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>CPF </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_cpf"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>CEP</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_cep"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btn_buscar_cep">
+                <property name="text">
+                 <string>BUSCAR</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>Bairro</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_bairro"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>Rua</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_rua"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>Numero</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_numero"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btn_limpar_cadastro_usuario">
+                <property name="text">
+                 <string>LIMPAR</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btn_cadastrar_usuario">
+                <property name="text">
+                 <string>CONFIRMAR</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_6">
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QWidget" name="widget_6" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>EDITAR // ID DO USUARIO</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_id_tela_excluir_usuario"/>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_7" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QPushButton" name="btn_voltar_tela_excluir_usuario_redirect">
+                   <property name="text">
+                    <string>VOLTAR</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_excluir_tela_excluir_usuario_redirect">
+                   <property name="text">
+                    <string>EXCLUIR</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_7">
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <item>
+            <widget class="QWidget" name="widget_8" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>EXCLUIR // ID DO USUARIO</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="input_id_tela_excluir_usuario_2"/>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_9" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <item>
+                  <widget class="QPushButton" name="btn_voltar_tela_editar_usuario_redirect">
+                   <property name="text">
+                    <string>VOLTAR</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_editar_tela_editar_usuario_redirect">
+                   <property name="text">
+                    <string>EDITAR</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="page_3">
           <widget class="QLabel" name="label_6">
@@ -735,9 +946,19 @@ color: rgb(0, 0, 0);</string>
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1261</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="sidebar/resource.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -747,11 +968,11 @@ color: rgb(0, 0, 0);</string>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>215</x>
-     <y>39</y>
+     <x>182</x>
+     <y>30</y>
     </hint>
     <hint type="destinationlabel">
-     <x>65</x>
+     <x>49</x>
      <y>261</y>
     </hint>
    </hints>
@@ -763,11 +984,11 @@ color: rgb(0, 0, 0);</string>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>228</x>
-     <y>37</y>
+     <x>182</x>
+     <y>30</y>
     </hint>
     <hint type="destinationlabel">
-     <x>196</x>
+     <x>156</x>
      <y>149</y>
     </hint>
    </hints>
@@ -779,12 +1000,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>39</x>
-     <y>99</y>
+     <x>40</x>
+     <y>68</y>
     </hint>
     <hint type="destinationlabel">
-     <x>174</x>
-     <y>95</y>
+     <x>155</x>
+     <y>57</y>
     </hint>
    </hints>
   </connection>
@@ -795,12 +1016,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>45</x>
-     <y>124</y>
+     <x>46</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
-     <x>125</x>
-     <y>119</y>
+     <x>155</x>
+     <y>82</y>
     </hint>
    </hints>
   </connection>
@@ -811,12 +1032,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>52</x>
-     <y>158</y>
+     <x>48</x>
+     <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>119</x>
-     <y>146</y>
+     <x>155</x>
+     <y>107</y>
     </hint>
    </hints>
   </connection>
@@ -827,12 +1048,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>43</x>
-     <y>178</y>
+     <x>44</x>
+     <y>145</y>
     </hint>
     <hint type="destinationlabel">
-     <x>97</x>
-     <y>174</y>
+     <x>148</x>
+     <y>132</y>
     </hint>
    </hints>
   </connection>
@@ -843,12 +1064,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>50</x>
-     <y>201</y>
+     <x>48</x>
+     <y>170</y>
     </hint>
     <hint type="destinationlabel">
-     <x>119</x>
-     <y>191</y>
+     <x>155</x>
+     <y>157</y>
     </hint>
    </hints>
   </connection>
@@ -859,12 +1080,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>82</x>
-     <y>89</y>
+     <x>133</x>
+     <y>57</y>
     </hint>
     <hint type="destinationlabel">
-     <x>42</x>
-     <y>106</y>
+     <x>43</x>
+     <y>68</y>
     </hint>
    </hints>
   </connection>
@@ -875,12 +1096,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>182</x>
-     <y>122</y>
+     <x>155</x>
+     <y>82</y>
     </hint>
     <hint type="destinationlabel">
      <x>48</x>
-     <y>133</y>
+     <y>94</y>
     </hint>
    </hints>
   </connection>
@@ -891,12 +1112,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>192</x>
-     <y>135</y>
+     <x>155</x>
+     <y>107</y>
     </hint>
     <hint type="destinationlabel">
-     <x>50</x>
-     <y>159</y>
+     <x>48</x>
+     <y>120</y>
     </hint>
    </hints>
   </connection>
@@ -907,12 +1128,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>179</x>
-     <y>175</y>
+     <x>155</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>48</x>
-     <y>186</y>
+     <y>145</y>
     </hint>
    </hints>
   </connection>
@@ -923,12 +1144,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>93</x>
-     <y>196</y>
+     <x>144</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
-     <x>34</x>
-     <y>202</y>
+     <x>35</x>
+     <y>170</y>
     </hint>
    </hints>
   </connection>
@@ -940,7 +1161,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>38</x>
-     <y>604</y>
+     <y>796</y>
     </hint>
     <hint type="destinationlabel">
      <x>62</x>
@@ -955,8 +1176,8 @@ color: rgb(0, 0, 0);</string>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>141</x>
-     <y>615</y>
+     <x>156</x>
+     <y>796</y>
     </hint>
     <hint type="destinationlabel">
      <x>173</x>
