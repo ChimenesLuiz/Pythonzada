@@ -52,10 +52,9 @@ class ListItemWithCheckbox(TwoLineAvatarIconListItem):
     #     else:
     #         the_list_item.text = str(db.mark_task_as_incomplete(the_list_item.pk))# Here
 
-    # def delete_item(self, the_list_item):
-    #     '''Delete the task'''
-    #     self.parent.remove_widget(the_list_item)
-    #     print(the_list_item.pk)
+    def delete_task(self, id):
+        self.parent.remove_widget(id)
+        TaskController.destroy(str(id.pk))
 
 class LeftCheckbox(ILeftBodyTouch, MDCheckbox):
     '''Custom left container'''
@@ -64,10 +63,8 @@ class LeftCheckbox(ILeftBodyTouch, MDCheckbox):
 class MainApp(MDApp):
     task_list_dialog = None
     def build(self):
-        # Setting theme to my favorite theme
         self.theme_cls.primary_palette = "Orange"
         
-    # Showing the task dialog to add tasks 
     def show_task_dialog(self):
         if not self.task_list_dialog:
             self.task_list_dialog = MDDialog(
@@ -78,7 +75,14 @@ class MainApp(MDApp):
 
         self.task_list_dialog.open()
 
+    def show(self):
+        data = TaskController.show()
+        for task in data:
+            add_task = ListItemWithCheckbox(pk = task[0], text = task[1], secondary_text = task[2])
+            self.root.ids.container.add_widget(add_task)
+
     def on_start(self):
+        self.show()
         # # Load the saved tasks and add them to the MDList widget when the application starts
         # try:
         #     completed_tasks, incompleted_tasks = db.get_tasks()
@@ -96,21 +100,18 @@ class MainApp(MDApp):
         # except Exception as e:
         #     print(e)
         #     pass
-        pass
 
     def close_dialog(self, *args):
         self.task_list_dialog.dismiss()
 
-    def add_task(self, task, task_date):
-        '''Add task to the list of tasks'''
-        #print(task.text, task_date)
-        TaskController.create(str(task.text), str(task_date))
-        #created_task = db.create_task(task.text, task_date)
+    def show_task_after_add(self, last_id = str):
+        data = TaskController.showOne(last_id = last_id)
+        self.root.ids['container'].add_widget(ListItemWithCheckbox(pk = data[0], text = '[b]'+data[1] + '[/b]', secondary_text = data[2]))
 
-        # return the created task details and create a list item
-        self.root.ids['container'].add_widget(ListItemWithCheckbox(pk='teste1', text='[b]'+'teste2'+'[/b]', secondary_text='teste3'))
-        #self.root.ids['container'].add_widget(ListItemWithCheckbox(pk=created_task[0], text='[b]'+created_task[1]+'[/b]', secondary_text=created_task[2]))
+    def add_task(self, task, task_date):
+        last_id = TaskController.create(str(task.text), str(task_date))
         task.text = ''
+        self.show_task_after_add(last_id = last_id)
 
 if __name__ == '__main__':
     app = MainApp()
