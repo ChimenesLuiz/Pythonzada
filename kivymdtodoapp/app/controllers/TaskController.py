@@ -25,4 +25,9 @@ class TaskController:
     def destroy(id = str) -> None:
         orm_task.deleteByID(id = id)
 
-        
+    @staticmethod
+    def updateMarker(id = str, checked = bool) -> None:
+        if (checked == True):
+            orm_task.updateMarkerChecked(id = id)
+        else:
+            orm_task.updateMarkerUnchecked(id = id)

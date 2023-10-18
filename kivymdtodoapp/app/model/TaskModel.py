@@ -39,10 +39,24 @@ class TaskModel:
     
         return data
     
+    def updateMarkerChecked(self, id = str) -> None:
+        orm_sqlite.conectar()
 
+        consulta = "UPDATE tasks SET completed = 1 WHERE id = ?"
+        orm_sqlite.cursor.execute(consulta, (id,))
+        orm_sqlite.conexao.commit()
 
-    def update(self) -> None:
-        pass
+        orm_sqlite.desconectar()
+
+    def updateMarkerUnchecked(self, id = str) -> None:
+        orm_sqlite.conectar()
+
+        consulta = "UPDATE tasks SET completed = 0 WHERE id = ?"
+        orm_sqlite.cursor.execute(consulta, (id,))
+        orm_sqlite.conexao.commit()
+
+        orm_sqlite.desconectar()
+    
 
     def deleteByID(self, id = str) -> None:
         orm_sqlite.conectar()

@@ -17,16 +17,14 @@ from app.controllers.TaskController import TaskController
 #---------------------
 
 
-
 class DialogContent(MDBoxLayout):
-    """OPENS A DIALOG BOX THAT GETS THE TASK FROM THE USER"""
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.ids.date_text.text = str(datetime.now().strftime('%A %d %B %Y'))
 
     
     def show_date_picker(self):
-        """Opens the date picker"""
+
         date_dialog = MDDatePicker()
         date_dialog.bind(on_save=self.on_save)
         date_dialog.open()
@@ -35,31 +33,28 @@ class DialogContent(MDBoxLayout):
         date = value.strftime('%A %d %B %Y')
         self.ids.date_text.text = str(date)
 
-# After creating the database.py
 class ListItemWithCheckbox(TwoLineAvatarIconListItem):
-    '''Custom list item'''
-
     def __init__(self, pk=None, **kwargs):
         super().__init__(**kwargs)
-        # state a pk which we shall use link the list items with the database primary keys
         self.pk = pk
+        self.line_risk_effect = ""
 
-    # def mark(self, check, the_list_item):
-    #     '''mark the task as complete or incomplete'''
-    #     if check.active == True:
-    #         the_list_item.text = '[s]'+the_list_item.text+'[/s]'
-    #         db.mark_task_as_complete(the_list_item.pk)# here
-    #     else:
-    #         the_list_item.text = str(db.mark_task_as_incomplete(the_list_item.pk))# Here
+    def check_tasks(self, check, id):
+        if (check.active == True):
+            self.line_risk_effect = id.text
+            id.text = '[s]' + id.text + '[/s]'
+            TaskController.updateMarker(id = str(id.pk), checked = True)
+        else:
+            id.text = self.line_risk_effect
 
     def delete_task(self, id):
         self.parent.remove_widget(id)
         TaskController.destroy(str(id.pk))
 
 class LeftCheckbox(ILeftBodyTouch, MDCheckbox):
-    '''Custom left container'''
+    pass
 
-# Main App class
+
 class MainApp(MDApp):
     task_list_dialog = None
     def build(self):
