@@ -19,6 +19,11 @@ MDFloatLayout:
         on_release: app.show_task_dialog()
         elevation_normal: 12
         pos_hint: {'x': .45 , 'y': .04}
+    
+    MDRaisedButton:
+        text: "Set theme"
+        on_release: app.switch_theme_style()
+        pos_hint: {'x': .85 , 'y': .91}
 
 <DialogContent>:
     orientation: "vertical"
@@ -63,7 +68,7 @@ MDFloatLayout:
     LeftCheckbox:
         id: check
         on_release: 
-            root.check_tasks(check, the_list_item)
+            root.check_uncheck(check, the_list_item)
 
     IconRightWidget:
         icon: 'trash-can-outline'
