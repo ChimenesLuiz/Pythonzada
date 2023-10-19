@@ -8,6 +8,8 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.pickers import MDDatePicker
 from kivymd.uix.list import TwoLineAvatarIconListItem, ILeftBodyTouch
 from kivymd.uix.selectioncontrol import MDCheckbox
+from kivymd.uix.scrollview import MDScrollView
+from kivy.properties import ObjectProperty
 #-----datetime------
 from datetime import datetime
 #---------------------
@@ -17,6 +19,9 @@ from datetime import datetime
 from app.controllers.TaskController import TaskController
 #---------------------
 
+class ContentNavigationDrawer(MDScrollView):
+    screen_manager = ObjectProperty()
+    nav_drawer = ObjectProperty()
 
 class DialogContent(MDBoxLayout):
     def __init__(self, **kwargs):
