@@ -64,7 +64,7 @@ class MainApp(MDApp):
         #self.theme_cls.accent_palette = "Red"
         self.theme_cls.theme_style_switch_animation = True
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Green"
+        self.theme_cls.primary_palette = "Gray"
 
         return Builder.load_file("app/resources/views/main.kv")
 
@@ -77,7 +77,7 @@ class MainApp(MDApp):
     def show_task_dialog(self):
         if not self.task_list_dialog:
             self.task_list_dialog = MDDialog(
-                title="Create Task",
+                title="Criar tarefa",
                 type="custom",
                 content_cls=DialogContent(),
             )

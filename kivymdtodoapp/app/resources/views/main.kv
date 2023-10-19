@@ -18,7 +18,7 @@
     MDList:
 
         OneLineListItem:
-            text: "Screen 1"
+            text: "Tarefas"
             on_press:
                 root.nav_drawer.set_state("close")
                 root.screen_manager.current = "screen_1"
@@ -40,7 +40,6 @@ MDScreen:
     MDTopAppBar:
         pos_hint: {"top": 1}
         elevation: 4
-        title: "MDNavigationDrawer"
         left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
 
     MDNavigationLayout:
@@ -56,8 +55,8 @@ MDScreen:
                         id: task_label
                         halign: 'center'
                         markup: True
-                        text: "[u][size=48][b]Task Manager[/b][/size][/u]"
-                        pos_hint: {'y': .32}
+                        text: "[u][size=48][b]Tarefas[/b][/size][/u]"
+                        pos_hint: {'y': .45}
 
                     ScrollView:
                         pos_hint: {'center_y': .5, 'center_x': .5}
@@ -89,11 +88,6 @@ MDScreen:
             id: nav_drawer
             radius: (0, 16, 16, 0)
 
-            MDNavigationDrawerMenu:
-            
-                    MDNavigationDrawerLabel:
-                    text: "Mail"
-
             ContentNavigationDrawer:
                 screen_manager: screen_manager
                 nav_drawer: nav_drawer
@@ -111,7 +105,7 @@ MDScreen:
 
         MDTextField:
             id: task_text
-            hint_text: "Add Task..."
+            hint_text: "Nome..."
             pos_hint: {"center_y": .4}
             max_text_length: 50
             on_text_validate: (app.add_task(task_text, date_text.text), app.close_dialog())
@@ -129,10 +123,10 @@ MDScreen:
         orientation: 'horizontal'
 
         MDRaisedButton:
-            text: "SAVE"
+            text: "SALVAR"
             on_release: (app.add_task(task_text, date_text.text), app.close_dialog())
         MDFlatButton:
-            text: 'CANCEL'
+            text: 'CANCELAR'
             on_release: app.close_dialog()
 
 
