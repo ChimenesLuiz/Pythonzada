@@ -21,9 +21,6 @@ from datetime import datetime
 from app.controllers.TaskController import TaskController
 #---------------------
 
-class GetIds(MDBoxLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 class ContentNavigationDrawer(MDScrollView):
     screen_manager = ObjectProperty()

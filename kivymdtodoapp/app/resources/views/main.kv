@@ -81,18 +81,18 @@ MDScreen:
                         markup: True
                         text: "[size=48][b]AJUSTES[/b][/size][/u]"
                         pos_hint: {'y': .45}
-                    <GetIds>:
-                        MDTextField:
-                            id: "input_easter_egg"
-                            pos_hint: {'x': .16 , 'y': .7}
-                            size_hint_x: .5
-                            hint_text: "Easter Egg"
-                            helper_text: "Digite o codigo do Easter Egg, ex: LUIZLINDO"
-                            helper_text_mode: "on_focus"
+
+                    MDTextField:
+                        id: "input_easter_egg"
+                        pos_hint: {'x': .16 , 'y': .7}
+                        size_hint_x: .5
+                        hint_text: "Easter Egg"
+                        helper_text: "Digite o codigo do Easter Egg, ex: LUIZLINDO"
+                        helper_text_mode: "on_focus"
 
                     MDRaisedButton:
                         text: "TENTE"
-                        on_release: app.teste()
+                        # on_release: app.teste()
                         pos_hint: {'x': .7 , 'y': .72}
                         size_hint_x: .1
                     MDLabel:
