@@ -38,6 +38,15 @@ class TaskModel:
     
         return data
     
+    def orderByTaskSelect(self) -> tuple:
+        orm_sqlite.conectar()
+
+        consulta = "SELECT * FROM tasks ORDER BY completed ASC"
+        data = orm_sqlite.cursor.execute(consulta).fetchall()
+        orm_sqlite.desconectar()
+    
+        return data
+    
     def updateMarkerChecked(self, id = str) -> None:
         orm_sqlite.conectar()
         consulta = "UPDATE tasks SET completed = 1 WHERE id = ?"

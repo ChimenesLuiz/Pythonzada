@@ -14,17 +14,15 @@
     _no_ripple_effect: True
 
 <ContentNavigationDrawer>
-
     MDList:
-
         OneLineListItem:
-            text: "Tarefas"
+            text: "HOME"
             on_press:
                 root.nav_drawer.set_state("close")
                 root.screen_manager.current = "screen_1"
 
         OneLineListItem:
-            text: "Screen 2"
+            text: "SETTINGS"
             on_press:
                 root.nav_drawer.set_state("close")
                 root.screen_manager.current = "screen_2"
@@ -55,7 +53,7 @@ MDScreen:
                         id: task_label
                         halign: 'center'
                         markup: True
-                        text: "[u][size=48][b]Tarefas[/b][/size][/u]"
+                        text: "[u][size=48][b]TASKS[/b][/size][/u]"
                         pos_hint: {'y': .45}
 
                     ScrollView:
@@ -67,22 +65,59 @@ MDScreen:
 
 
                     MDFloatingActionButton:
-                        icon: 'plus-thick'
+                        icon: 'app/resources/icons/plus.png'
                         on_release: app.show_task_dialog()
-                        elevation_normal: 12
-                        pos_hint: {'x': .45 , 'y': .04}
+                        elevation_normal: 13
+                        pos_hint: {'x': .30 , 'y': .04}
                     
-                    # MDRaisedButton:
-                    #     text: "Set theme"
-                    #     on_release: app.switch_theme_style()
-                    #     pos_hint: {'x': .85 , 'y': .91}
+                    MDFloatingActionButton:
+                        icon: 'app/resources/icons/refresh.png'
+                        on_release: app.refresh_tasks()
+                        elevation_normal: 13
+                        pos_hint: {'x': .60 , 'y': .04}
 
             MDScreen:
                 name: "screen_2"
 
+                MDTextField:
+                    pos_hint: {'x': .16 , 'y': .7}
+                    size_hint_x: .5
+                    hint_text: "Easter Egg"
+                    helper_text: "Type a code to see a easter egg created by Luiz :P"
+                    helper_text_mode: "on_focus"
+
+                MDRaisedButton:
+                    text: "Try"
+                    # on_release: app.switch_theme_style()
+                    pos_hint: {'x': .7 , 'y': .72}
+                    size_hint_x: .1
                 MDLabel:
-                    text: "Screen 2"
-                    halign: "center"
+                    pos_hint: {'x': .159 , 'y': .15}
+                    text: "Change color theme:"
+                
+                MDRaisedButton:
+                    text: "Change"
+                    on_release: app.switch_theme_style()
+                    pos_hint: {'x': .158 , 'y': .55}
+                    size_hint_x: .2
+
+
+                MDLabel:
+                    pos_hint: {'x': .159 , 'y': .0}
+                    text: "Tasks:"
+                
+                MDRaisedButton:
+                    text: "Import"
+                    # on_release: app.switch_theme_style()
+                    pos_hint: {'x': .158 , 'y': .40}
+                    size_hint_x: .2
+
+                MDRaisedButton:
+                    text: "Export"
+                    on_release: app.export_data_tasks()
+                    pos_hint: {'x': .420 , 'y': .40}
+                    size_hint_x: .2
+
 
         MDNavigationDrawer:
             id: nav_drawer
@@ -105,7 +140,7 @@ MDScreen:
 
         MDTextField:
             id: task_text
-            hint_text: "Nome..."
+            hint_text: "Name..."
             pos_hint: {"center_y": .4}
             max_text_length: 50
             on_text_validate: (app.add_task(task_text, date_text.text), app.close_dialog())
@@ -123,10 +158,10 @@ MDScreen:
         orientation: 'horizontal'
 
         MDRaisedButton:
-            text: "SALVAR"
+            text: "SAVE"
             on_release: (app.add_task(task_text, date_text.text), app.close_dialog())
         MDFlatButton:
-            text: 'CANCELAR'
+            text: 'CANCEL'
             on_release: app.close_dialog()
 
 

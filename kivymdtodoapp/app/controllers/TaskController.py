@@ -1,3 +1,7 @@
+#CLASSES EXTERNAS
+#-----shutil------
+import shutil
+#---------------------
 #CLASSES INTERNAS
 #-----model------
 from app.model.TaskModel import TaskModel
@@ -17,21 +21,9 @@ class TaskController:
         return data
     
     @staticmethod
-    def getTasksByMarker() -> tuple or list:
-        data = TaskController.show()
-
-        checked_tasks = []
-        unchecked_tasks = []
-
-        for task in data:
-            #SE O CAMPO COMPLETED NA TABELA FOR IGUAL A 1
-            #IF COMPLETED COLUMN EQUALS TO 1
-            if (task[3] == 1):
-                checked_tasks.append(task)
-            else:
-                unchecked_tasks.append(task)
-
-        return checked_tasks, unchecked_tasks
+    def getOrderTasks() -> tuple or list:
+        data = orm_task.orderByTaskSelect()
+        return data
 
     @staticmethod
     def showOne(last_id = str) -> tuple:
@@ -48,3 +40,11 @@ class TaskController:
     @staticmethod
     def destroy(id = str) -> None:
         orm_task.deleteByID(id = id)
+
+    #OTHERS
+    @staticmethod
+    def export() -> None:
+        dir_db = 'todo.db'
+        new_dir_db = 'new.db' 
+        shutil.copy(dir_db, new_dir_db)
+        print(f'Arquivo copiado de "{dir_db}" para "{new_dir_db}".')
