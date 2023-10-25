@@ -22,16 +22,11 @@
                 root.screen_manager.current = "screen_1"
 
         OneLineListItem:
-            text: "SETTINGS"
+            text: "AJUSTES"
             on_press:
                 root.nav_drawer.set_state("close")
                 root.screen_manager.current = "screen_2"
 
-
-        # MDRaisedButton:
-        #     text: "Set theme"
-        #     on_release: app.switch_theme_style()
-        #     pos_hint: {'y': .25}
 
 MDScreen:
 
@@ -53,7 +48,7 @@ MDScreen:
                         id: task_label
                         halign: 'center'
                         markup: True
-                        text: "[u][size=48][b]TASKS[/b][/size][/u]"
+                        text: "[size=48][b]TAREFAS[/b][/size][/u]"
                         pos_hint: {'y': .45}
 
                     ScrollView:
@@ -78,45 +73,54 @@ MDScreen:
 
             MDScreen:
                 name: "screen_2"
+                MDFloatLayout:
 
-                MDTextField:
-                    pos_hint: {'x': .16 , 'y': .7}
-                    size_hint_x: .5
-                    hint_text: "Easter Egg"
-                    helper_text: "Type a code to see a easter egg created by Luiz :P"
-                    helper_text_mode: "on_focus"
+                    
+                    MDLabel:
+                        halign: 'center'
+                        markup: True
+                        text: "[size=48][b]AJUSTES[/b][/size][/u]"
+                        pos_hint: {'y': .45}
+                    <GetIds>:
+                        MDTextField:
+                            id: "input_easter_egg"
+                            pos_hint: {'x': .16 , 'y': .7}
+                            size_hint_x: .5
+                            hint_text: "Easter Egg"
+                            helper_text: "Digite o codigo do Easter Egg, ex: LUIZLINDO"
+                            helper_text_mode: "on_focus"
 
-                MDRaisedButton:
-                    text: "Try"
-                    # on_release: app.switch_theme_style()
-                    pos_hint: {'x': .7 , 'y': .72}
-                    size_hint_x: .1
-                MDLabel:
-                    pos_hint: {'x': .159 , 'y': .15}
-                    text: "Change color theme:"
-                
-                MDRaisedButton:
-                    text: "Change"
-                    on_release: app.switch_theme_style()
-                    pos_hint: {'x': .158 , 'y': .55}
-                    size_hint_x: .2
+                    MDRaisedButton:
+                        text: "TENTE"
+                        on_release: app.teste()
+                        pos_hint: {'x': .7 , 'y': .72}
+                        size_hint_x: .1
+                    MDLabel:
+                        pos_hint: {'x': .159 , 'y': .15}
+                        text: "Mudar tema:"
+                    
+                    MDRaisedButton:
+                        text: "MUDAR"
+                        on_release: app.switch_theme_style()
+                        pos_hint: {'x': .158 , 'y': .55}
+                        size_hint_x: .2
 
 
-                MDLabel:
-                    pos_hint: {'x': .159 , 'y': .0}
-                    text: "Tasks:"
-                
-                MDRaisedButton:
-                    text: "Import"
-                    # on_release: app.switch_theme_style()
-                    pos_hint: {'x': .158 , 'y': .40}
-                    size_hint_x: .2
+                    MDLabel:
+                        pos_hint: {'x': .159 , 'y': .0}
+                        text: "Tarefas:"
+                    
+                    MDRaisedButton:
+                        text: "IMPORTAR"
+                        on_release: app.choose_file_to_import()
+                        pos_hint: {'x': .158 , 'y': .40}
+                        size_hint_x: .2
 
-                MDRaisedButton:
-                    text: "Export"
-                    on_release: app.export_data_tasks()
-                    pos_hint: {'x': .420 , 'y': .40}
-                    size_hint_x: .2
+                    MDRaisedButton:
+                        text: "EXPORTAR"
+                        on_release: app.export_data_tasks()
+                        pos_hint: {'x': .420 , 'y': .40}
+                        size_hint_x: .2
 
 
         MDNavigationDrawer:
@@ -126,6 +130,8 @@ MDScreen:
             ContentNavigationDrawer:
                 screen_manager: screen_manager
                 nav_drawer: nav_drawer
+
+
 
 
 
@@ -140,7 +146,7 @@ MDScreen:
 
         MDTextField:
             id: task_text
-            hint_text: "Name..."
+            hint_text: "Nome"
             pos_hint: {"center_y": .4}
             max_text_length: 50
             on_text_validate: (app.add_task(task_text, date_text.text), app.close_dialog())
@@ -158,13 +164,11 @@ MDScreen:
         orientation: 'horizontal'
 
         MDRaisedButton:
-            text: "SAVE"
+            text: "SALVAR"
             on_release: (app.add_task(task_text, date_text.text), app.close_dialog())
         MDFlatButton:
-            text: 'CANCEL'
+            text: 'CANCELAR'
             on_release: app.close_dialog()
-
-
 
 <ListItemWithCheckbox>:
     id: the_list_item

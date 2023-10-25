@@ -10,6 +10,8 @@ from kivymd.uix.list import TwoLineAvatarIconListItem, ILeftBodyTouch
 from kivymd.uix.selectioncontrol import MDCheckbox
 from kivymd.uix.scrollview import MDScrollView
 from kivy.properties import ObjectProperty
+from kivymd.uix.button import MDFlatButton
+from plyer import filechooser 
 #-----datetime------
 from datetime import datetime
 #---------------------
@@ -19,6 +21,9 @@ from datetime import datetime
 from app.controllers.TaskController import TaskController
 #---------------------
 
+class GetIds(MDBoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
 class ContentNavigationDrawer(MDScrollView):
     screen_manager = ObjectProperty()
@@ -37,6 +42,7 @@ class DialogContent(MDBoxLayout):
     def on_save(self, instance, value, date_range):
         date = value.strftime('%A %d %B %Y')
         self.ids.date_text.text = str(date)
+
 
 class ListItemWithCheckbox(TwoLineAvatarIconListItem):
     def __init__(self, pk = None, **kwargs):
@@ -75,13 +81,27 @@ class MainApp(MDApp):
         self.list_tasks(tasks = tasks)
 
     def show_task_dialog(self):
-        if not self.task_list_dialog:
+        if (not self.task_list_dialog):
             self.task_list_dialog = MDDialog(
                 title="Create Task",
                 type="custom",
                 content_cls=DialogContent(),
             )
         self.task_list_dialog.open()
+
+    def show_export_dialog(self, exported_at = ""):
+        if (not self.task_list_dialog):
+            self.export_dialog = MDDialog(
+                title = f"Exported at {exported_at}",
+                buttons=[
+                    MDFlatButton(
+                        text="OK",
+                        on_release=self.close_export_dialog
+                    )
+                ]
+
+            )
+        self.export_dialog.open()
 
     def show_task_after_add(self, last_id = str):
         data = TaskController.showOne(last_id = last_id)
@@ -110,6 +130,11 @@ class MainApp(MDApp):
 
     def close_dialog(self, *args):
         self.task_list_dialog.dismiss()
+        self.task_list_dialog = None
+
+    def close_export_dialog(self, *args):
+        self.export_dialog.dismiss()
+        self.task_list_dialog = None
 
     def switch_theme_style(self):
         self.theme_cls.primary_palette = (
@@ -120,6 +145,17 @@ class MainApp(MDApp):
         )
 
     def export_data_tasks(self):
-        TaskController.export()
+        exported_at = TaskController.export()
+        self.show_export_dialog(exported_at = exported_at)
+
+    def choose_file_to_import(self):
+        filechooser.open_file(on_selection = self.import_data_tasks)
+    
+    def import_data_tasks(self, selection):
+        TaskController.import_sql(file = selection[0])
+        self.on_start()
+    
+
+
 if __name__ == '__main__':
     MainApp().run()

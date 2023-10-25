@@ -6,6 +6,8 @@ import shutil
 #-----model------
 from app.model.TaskModel import TaskModel
 orm_task = TaskModel()
+#-----controllers------
+from app.controllers.DirectoryController import DirectoryController
 #---------------------
 
 class TaskController:
@@ -44,7 +46,16 @@ class TaskController:
     #OTHERS
     @staticmethod
     def export() -> None:
-        dir_db = 'todo.db'
-        new_dir_db = 'new.db' 
-        shutil.copy(dir_db, new_dir_db)
-        print(f'Arquivo copiado de "{dir_db}" para "{new_dir_db}".')
+        so = DirectoryController.getSO()
+        if (so == "Linux"):
+            orm_task.export_sql()
+            return DirectoryController.createInLinux()
+        if (so == "Windows"):
+            return DirectoryController.createInWindows()
+        if (so == "Android"):
+            return DirectoryController.createInAndroid()
+        
+    @staticmethod
+    def import_sql(file = str) -> None:
+        DirectoryController.rmDb()
+        orm_task.import_sql(file = file)

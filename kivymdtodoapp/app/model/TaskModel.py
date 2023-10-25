@@ -2,6 +2,7 @@
 #-----model------
 from app.database.Sqlite import Sqlite
 orm_sqlite = Sqlite()
+orm_sqlite.criar("tasks")
 #---------------------
 
 class TaskModel:
@@ -79,3 +80,9 @@ class TaskModel:
         orm_sqlite.conexao.commit()
 
         orm_sqlite.desconectar()
+
+    def import_sql(self, file = str) -> None:
+        orm_sqlite.importar(file = file)
+
+    def export_sql(self) -> None:
+        orm_sqlite.exportar()
