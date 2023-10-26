@@ -68,8 +68,8 @@ class MainApp(MDApp):
         #['Red', 'Pink', 'Purple', 'DeepPurple', 'Indigo', 'Blue', 'LightBlue', 'Cyan', 'Teal', 'Green', 'LightGreen', 'Lime', 'Yellow', 'Amber', 'Orange', 'DeepOrange', 'Brown', 'Gray', 'BlueGray']
         #self.theme_cls.accent_palette = "Red"
         self.theme_cls.theme_style_switch_animation = True
-        self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Green"
+        self.theme_cls.theme_style = "Light"
+        self.theme_cls.primary_palette = "Blue"
 
         return Builder.load_file("app/resources/views/main.kv")
 

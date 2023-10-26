@@ -13,7 +13,8 @@ class DirectoryController:
     
     @staticmethod
     def createInLinux() -> str:
-        destination_dir = '/home/luiz/Downloads/'
+        user = os.getenv('USER')
+        destination_dir = f"/home/{user}/Downloads/"
 
         if (not os.path.exists(destination_dir)):
             os.makedirs(destination_dir)
@@ -28,8 +29,8 @@ class DirectoryController:
         
     @staticmethod
     def createInWindows() -> str:
-        username = os.getlogin()
-        destination_dir = f"C:\{username}\John\Downloads"
+        user = os.getlogin()
+        destination_dir = f"C:\{user}\John\Downloads"
 
         if (not os.path.exists(destination_dir)):
             os.makedirs(destination_dir)
