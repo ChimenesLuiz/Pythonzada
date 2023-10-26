@@ -1,7 +1,13 @@
+#CLASSES EXTERNAS
+#-----shutil------
+import shutil
+#---------------------
 #CLASSES INTERNAS
 #-----model------
 from app.model.TaskModel import TaskModel
 orm_task = TaskModel()
+#-----controllers------
+from app.controllers.DirectoryController import DirectoryController
 #---------------------
 
 class TaskController:
@@ -17,21 +23,9 @@ class TaskController:
         return data
     
     @staticmethod
-    def getTasksByMarker() -> tuple or list:
-        data = TaskController.show()
-
-        checked_tasks = []
-        unchecked_tasks = []
-
-        for task in data:
-            #SE O CAMPO COMPLETED NA TABELA FOR IGUAL A 1
-            #IF COMPLETED COLUMN EQUALS TO 1
-            if (task[3] == 1):
-                checked_tasks.append(task)
-            else:
-                unchecked_tasks.append(task)
-
-        return checked_tasks, unchecked_tasks
+    def getOrderTasks() -> tuple or list:
+        data = orm_task.orderByTaskSelect()
+        return data
 
     @staticmethod
     def showOne(last_id = str) -> tuple:
@@ -48,3 +42,20 @@ class TaskController:
     @staticmethod
     def destroy(id = str) -> None:
         orm_task.deleteByID(id = id)
+
+    #OTHERS
+    @staticmethod
+    def export() -> None:
+        so = DirectoryController.getSO()
+        if (so == "Linux"):
+            orm_task.export_sql()
+            return DirectoryController.createInLinux()
+        if (so == "Windows"):
+            return DirectoryController.createInWindows()
+        if (so == "Android"):
+            return DirectoryController.createInAndroid()
+        
+    @staticmethod
+    def import_sql(file = str) -> None:
+        DirectoryController.rmDb()
+        orm_task.import_sql(file = file)

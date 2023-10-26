@@ -2,6 +2,7 @@
 #-----model------
 from app.database.Sqlite import Sqlite
 orm_sqlite = Sqlite()
+orm_sqlite.criar("tasks")
 #---------------------
 
 class TaskModel:
@@ -33,6 +34,15 @@ class TaskModel:
         orm_sqlite.conectar()
 
         consulta = "SELECT * FROM tasks"
+        data = orm_sqlite.cursor.execute(consulta).fetchall()
+        orm_sqlite.desconectar()
+    
+        return data
+    
+    def orderByTaskSelect(self) -> tuple:
+        orm_sqlite.conectar()
+
+        consulta = "SELECT * FROM tasks ORDER BY completed ASC"
         data = orm_sqlite.cursor.execute(consulta).fetchall()
         orm_sqlite.desconectar()
     
@@ -70,3 +80,9 @@ class TaskModel:
         orm_sqlite.conexao.commit()
 
         orm_sqlite.desconectar()
+
+    def import_sql(self, file = str) -> None:
+        orm_sqlite.importar(file = file)
+
+    def export_sql(self) -> None:
+        orm_sqlite.exportar()
